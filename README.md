@@ -17,3 +17,18 @@ python manage.py runserver
  http://127.0.0.1:8000/
 ### Type the command to create application crudApp
 python manage.py startapp crudApp
+### Open the folder crudProject in visual studio code
+### Install Python debugger and Sqlite DB explorer
+### Write following code in views.py
+```
+from django.shortcuts import render
+from django.http import HttpResponse
+
+def firstView(request):
+    return HttpResponse("<h1>My first View in django</h1>")
+
+def indexView(request):
+    funda = ['funda','of','web','IT']
+    data = "3214"
+    return render(request, 'index.html', {'data':data, 'funda':funda})
+```
