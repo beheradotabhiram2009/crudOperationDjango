@@ -133,5 +133,52 @@ class Student(models.Model):
     email = models.CharField(max_length=80, null=True)
     dob = models.DateTimeField(null=True)
 ```
+### Make Change in settings.py to include the crudApp 
+```
+INSTALLED_APPS = [
+    'crudApp.apps.CrudappConfig',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+```
+### Write command for migration which will create database table in sqlite3
+'''py manage.py makemigrations'''
+### Now we have to register the model for this write in  admin.py following code
+```
+from django.contrib import admin
+from .models import Student
 
+admin.site.register(Student)
+```
+### Now migrate the table using the following command 
+```py manage.py migrate```
+### The table created with name crudApp_student
+### To add sample data we can install DB Browser for (SQLite) on the system and use it
+### or to create a sql file in vscode use command ctrl shift p
+### select sqlite: New Query
+### select the db.sqlite3 database
+### type the insert query
+```
+insert into crudApp_student (rollno, name, branch, phone, email, dob) values
+('101', 'rama', 'cse', '8895955560', 'behera.abhiram2009@gmail.com', '1972-06-14')
+```
+### To run the Query Type  ctrl shift p
+### select sqlite: Run Query
+### To check if inserted write SELECT QUERY in sql file and run
+```SELECT * from crudApp_student```
+### On right side we can see the result
+### To show student Data,  write following function in views.py
+```
+from django.views.decorators.csrf import csrf_exempt
+from . import models
 
+@csrf_exempt
+def student_list(request):
+    form = models.Student.objects.all()
+    context = {'form':form}
+    return render(request, 'students/index.html', context)
+```
