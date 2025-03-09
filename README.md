@@ -112,6 +112,7 @@ python manage.py runserver
  ```
 ### To Check the Web page type in browser
 http://127.0.0.1:8000/crudApp/
+
 http://127.0.0.1:8000/crudApp/first
 ### For Database Operation and administration create a super user by command at terminal
 ```
