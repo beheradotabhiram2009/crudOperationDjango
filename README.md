@@ -111,18 +111,14 @@ TEMPLATES = [
 python manage.py runserver
  ```
 ### To Check the Web page type in browser
-```
 http://127.0.0.1:8000/crudApp/
 http://127.0.0.1:8000/crudApp/first
-```
 ### For Database Operation and administration create a super user by command at terminal
 ```
 python manage.py createsuperuser
 ```
 ### To see the django admin site page use in browser
-```
 http://127.0.0.1:8000/admin/
-```
 ### Create a Student model in models.py file
 ```
 from django.db import models
@@ -242,9 +238,7 @@ urlpatterns = [
 python manage.py runserver
 ```
 ### To Check the Web page type in browser
-```
 http://127.0.0.1:8000/crudApp/students
-```
 ### To Add students create student_entry and add_student view
 ```
 @csrf_exempt
@@ -331,7 +325,7 @@ urlpatterns = [
 ### To Run the Server type on the terminal
 ``` python manage.py runserver ```
 ### To Check the Web page type in browser
-``` http://127.0.0.1:8000/crudApp/students ```
+http://127.0.0.1:8000/crudApp/students
 ### To provide Edit and delete operation  create the views in views.py
 ```
 @csrf_exempt
